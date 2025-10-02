@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!-- Lien vers le fichier CSS -->
+    <link rel="stylesheet" href="voc.css">
+</head>
+<body>
+    <h1>Revisions Vocabulaire</h1>
+    <section id="introduction">
+        <h2>Vocabulaire</h2>
+        <label style="font-size: large;font-weight: bold;">
+                <input type="checkbox" id="prefait" checked>
+                Utiliser liste précelectionné
+        </label>
+        <div id="prefaitcontainer">
+            <label>
+                <input type="checkbox" id="idioms">
+                Epressions anglaises courantes 
+            </label>
+            <label>
+                <input type="checkbox" id="euro">
+                Vocabulaire d'euro
+            </label>
+            <div id="eurocontainer" class="hide">
+                <!-- ALGEBRA -->
+                <label>
+                    <input type="checkbox" id="algebra">
+                    Algebra
+                </label>
+
+                <!-- DIMENSIONS -->
+                <label>
+                    <input type="checkbox" id="dimensions">
+                    Dimensions
+                </label>
+                <!-- ARITHMETIC -->
+                <label>
+                    <input type="checkbox" id="arithmetic">
+                    Arithmetic
+                </label>
+                <!-- FUNCTIONS -->
+                <label>
+                    <input type="checkbox" id="functions">
+                    Functions
+                </label>
+                <div class="hide" id="functionscontainer">
+                    <label>
+                        <input type="checkbox" id="basegraphs" checked>
+                        Base & Graphs
+                    </label>
+                    <label>
+                        <input type="checkbox" id="typesfunctions" checked>
+                        Types de fonctions
+                    </label>
+                    <label>
+                        <input type="checkbox" id="formsfunctions" checked>
+                        Formes & dérivées
+                    </label>
+                    <label>
+                        <input type="checkbox" id="otherfunctions" checked>
+                        Autres propriétés
+                    </label>
+                </div>
+                <!-- NUMBERS -->
+                <label>
+                    <input type="checkbox" id="numbers">
+                    Numbers
+                </label>
+                <div class="hide" id="numberscontainer">
+                    <label>
+                        <input type="checkbox" id="typenumbers" checked>
+                        Types de nombres
+                    </label>
+                    <label>
+                        <input type="checkbox" id="powersnumbers" checked>
+                        Puissances & Racines
+                    </label>
+                    <label>
+                        <input type="checkbox" id="fractionsnumbers" checked>
+                        Fractions & Rapports
+                    </label>
+                    <label>
+                        <input type="checkbox" id="approxnumbers" checked>
+                        Approximation & Arrondis
+                    </label>
+                    <label>
+                        <input type="checkbox" id="inequalitiesnumbers" checked>
+                        Inégalités & Intervalles
+                    </label>
+            
+                </div>
+                <!-- GEOMETRY -->
+                <label>
+                    <input type="checkbox" id="geometry">
+                    Geometry
+                </label>
+                <div class="hide" id="geometrycontainer">
+                    <label>
+                        <input type="checkbox" id="geometrypoints" checked>
+                        Points & Repères
+                    </label>
+                    <label>
+                        <input type="checkbox" id="geometrycircles" checked>
+                        Cercles
+                    </label>
+                    <label>
+                        <input type="checkbox" id="geometryangles" checked>
+                        Angles
+                    </label>
+                    <label>
+                        <input type="checkbox" id="geometrytriangles" checked>
+                        Triangles
+                    </label>
+                    <label>
+                        <input type="checkbox" id="geometryfigures" checked>
+                        Figures
+                    </label>
+                    <label>
+                        <input type="checkbox" id="geometrysolids" checked>
+                        Solides
+                    </label>
+                    <label>
+                        <input type="checkbox" id="geometrylines" checked>
+                        Lignes
+                    </label>
+                    <label>
+                        <input type="checkbox" id="geometryvectors" checked>
+                        Vecteurs
+                    </label>
+                </div>
+                <!-- PROBABILITY & STATISTICS -->
+                <label>
+                    <input type="checkbox" id="probstats">
+                    Probability & Statistics
+                </label>
+                <div class="hide" id="probstatscontainer">
+                    <label>
+                        <input type="checkbox" id="probability" checked>
+                        Probability
+                    </label>
+                    <label>
+                        <input type="checkbox" id="statistics" checked>
+                        Statistics
+                    </label>
+                </div>
+
+                <!-- CALCULUS -->
+                <label>
+                    <input type="checkbox" id="calculus">
+                    Calculus
+                </label>
+
+                <!-- TRIGONOMETRY -->
+                <label>
+                    <input type="checkbox" id="trigonometry">
+                    Trigonometry
+                </label>
+
+                <!-- MATRICES -->
+                <label>
+                    <input type="checkbox" id="matrices">
+                    Matrices
+                </label>
+
+                <!-- SETS -->
+                <label>
+                    <input type="checkbox" id="sets">
+                    Sets
+                </label>
+
+                <!-- SEQUENCES & SERIES -->
+                <label>
+                    <input type="checkbox" id="sequences">
+                    Sequences & Series
+                </label>
+
+                <!-- COMPLEX NUMBERS -->
+                <label>
+                    <input type="checkbox" id="complex">
+                    Complex Numbers
+                </label>
+
+                <!-- TRANSFORMATIONS -->
+                <label>
+                    <input type="checkbox" id="transformations">
+                    Transformations
+                </label>
+
+
+
+            </div>
+
+        </div>
+        <div id="customcontainer">
+            <p>Entre ci dessous les listes de vocabulaire a apprendre séparé d'une virgule</p>
+            <input type="text" id="francais" placeholder="vocabulaire français">
+            <input type="text" id="traduction" placeholder="traduction autre langue">
+        </div>
+        <button id="ajouter">Ajouter ?</button>
+
+
+    </section>
+    <section  id="vocabulaire">
+        <h2>Révision</h2>
+        <div id="startcontainer">
+            <button id="startquiz">Commencer le quiz</button>
+            <p>Le quiz se termine quand tous les mots ont été utilisés <a id="rep">3</a> fois</p>
+            <input type="range" id="repetitions" value="3" min="1" max="10">
+            <p>Le quiz propose le mot en français et vous propose 4 traductions différentes</p>
+            <div style="display: inline-flex;align-items: center;margin: 0;" >
+                <p>Inverser français traduction :</p>
+                <input type="checkbox" id="inverser">
+            </div>
+        </div>
+        <div id="quizcontainer">
+            <h3 id="motAffiche">poule</h3>
+            <button id="1bouton">pig</button>
+            <button id="2bouton">chicken</button>
+            <button id="3bouton">cow</button> 
+            <button id="4bouton">sheep</button>
+            <p>pourcentage actuelle de bonne réponse: <a id="actualscore">0</a></p>
+            
+        </div>
+        <div id="scorecontainer">
+            <p>précédent score: <a id="lastscore">0</a></p> 
+            <p>meilleur score: <a id="bestscore">0</a></p>
+        </div>
+    </section>
+    <script src="voc.js"></script>
+</body>
+</html>
