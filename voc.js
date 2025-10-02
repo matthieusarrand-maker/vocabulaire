@@ -1089,6 +1089,7 @@ document.getElementById("startquiz").onclick = function() {
     ];
     let motAffiche = document.getElementById("motAffiche");
     let actualscore = document.getElementById("actualscore");
+    let questionsrestantes = document.getElementById("questionsrestantes");
     let lastscore = document.getElementById("lastscore");
     let bestscore = document.getElementById("bestscore");
     let repetitions = parseInt(document.getElementById("repetitions").value);
@@ -1100,6 +1101,7 @@ document.getElementById("startquiz").onclick = function() {
         for (let j = 0; j < motsFr.length; j++) {
             reste.push(j);}}
     reste = melange(reste);
+    questionsrestantes.innerHTML = reste.length;
     function nextQuestion() {
         if (reste.length === 0) {
             lastscore.innerText = Math.round(repjuste / total * 100) + "%";
@@ -1140,6 +1142,7 @@ document.getElementById("startquiz").onclick = function() {
                         repjuste++;
                     }
                     actualscore.innerHTML = Math.round(repjuste / total * 100) + "%";
+                    questionsrestantes.innerHTML = reste.length;
                     reste.shift();
                     for (let a = 0; a < buttons.length; a++) {
                         if (listeOptions[a] === bonneReponse) {
@@ -1215,4 +1218,5 @@ document.getElementById("probstats").onchange = function() {
     } else {
         document.getElementById("probstatscontainer").style.display = "none"; 
     }
+
 };
