@@ -909,7 +909,7 @@ function melange(array) {
     return array;
 }
 
-document.getElementById("ajouter").onclick = function() {
+function ajouter() {
     motsFr = []
     motsTr = []
     if (document.getElementById("prefait").checked) {
@@ -1102,6 +1102,7 @@ document.getElementById("startquiz").onclick = function() {
             reste.push(j);}}
     reste = melange(reste);
     questionsrestantes.innerHTML = reste.length;
+    ajouter()
     function nextQuestion() {
         if (reste.length === 0) {
             lastscore.innerText = Math.round(repjuste / total * 100) + "%";
@@ -1220,3 +1221,4 @@ document.getElementById("probstats").onchange = function() {
     }
 
 };
+
