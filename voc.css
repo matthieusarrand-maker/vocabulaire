@@ -1,7 +1,8 @@
 body{
     font-family: Arial, sans-serif;
-    background-color: #50d0fe;
-    /* background-image: url(fond.png);*/
+    /* background-color: #50d0fe;
+    background-image: url(fond.png);*/
+    background-image: url(https://media.istockphoto.com/id/1156456881/fr/vectoriel/drapeaux-nationaux-des-pays-europ%C3%A9ens-avec-des-l%C3%A9gendes.jpg?s=612x612&w=is&k=20&c=vSt-9HjqWdHuuajHGsxuRiXBvYZYCsgitecO3HjTpzA=);
     background-size: 50% auto;
     color: #303030;
     text-align: center;
@@ -77,3 +78,4 @@ input::placeholder{
     display: none;
 
     margin-left: 60px;}
+
