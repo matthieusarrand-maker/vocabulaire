@@ -898,6 +898,75 @@ const EuroTransformationsFr = [
   "isométrie",
   "similarité"
 ];
+// L’Europe face aux révolutions (1789-1848)
+
+const DateRevoEuro = [
+  "1774-1792",
+  "Mai 1789",
+  "20 juin 1789",
+  "14 juillet 1789",
+  "4 août 1789",
+  "26 août 1789",
+  "1791",
+  "21 juin 1791",
+  "20 avril 1792",
+  "10 août 1792",
+  "22 septembre 1792",
+  "21 janvier 1793",
+  "Juin 1793 - Juillet 1794",
+  "27 juillet 1794 (9 thermidor an II)",
+  "1799",
+  "1804 (Code civil)",
+  "1804 (Empire)",
+  "1814-1815",
+  "1815",
+  "1814-1824",
+  "1824-1830",
+  "27-29 juillet 1830",
+  "1830 (Monarchie de Juillet)",
+  "1830 (Belgique)",
+  "Début XIXe siècle",
+  "1821-1822",
+  "1826-1827",
+  "1830 (Grèce)",
+  "1848",
+  "Février 1848",
+  "Après 1848"
+];
+
+const EvRevoEuro = [
+  "Règne de Louis XVI. Tentatives de réformes financières bloquées par la noblesse et le clergé.",
+  "Ouverture des États généraux convoqués par Louis XVI pour résoudre la crise financière.",
+  "Serment du Jeu de Paume : le tiers état se proclame Assemblée nationale et jure d'écrire une constitution.",
+  "Prise de la Bastille : début de la Révolution, symbole de la chute de l'absolutisme.",
+  "Abolition des privilèges : fin des droits féodaux, égalité juridique entre tous les Français.",
+  "Déclaration des droits de l’homme et du citoyen : liberté, égalité, souveraineté nationale.",
+  "Constitution de 1791 : monarchie constitutionnelle et suffrage censitaire.",
+  "Fuite du roi à Varennes : arrestation de Louis XVI, perte de confiance du peuple envers la monarchie.",
+  "Déclaration de guerre à l’Autriche et à la Prusse : la Révolution devient européenne.",
+  "Prise du palais des Tuileries : fin de la monarchie en France.",
+  "Proclamation de la Première République par la Convention nationale.",
+  "Exécution de Louis XVI sur la place de la Révolution (Concorde).",
+  "La Terreur : régime dirigé par Robespierre, répression politique violente.",
+  "Chute de Robespierre : fin de la Terreur, début du Directoire.",
+  "Coup d’État du 18 Brumaire : Napoléon Bonaparte prend le pouvoir et fonde le Consulat.",
+  "Promulgation du Code civil (Code Napoléon) : égalité civile, propriété, famille.",
+  "Napoléon se couronne empereur des Français. Diffusion des idées révolutionnaires en Europe.",
+  "Chute de Napoléon et Congrès de Vienne : restauration des monarchies et réorganisation de l’Europe.",
+  "Sainte Alliance (Autriche, Prusse, Russie) pour défendre l’ordre monarchique.",
+  "Règne de Louis XVIII : monarchie constitutionnelle limitée par la Charte de 1814.",
+  "Règne de Charles X : politique réactionnaire, censure de la presse, crise politique.",
+  "Les Trois Glorieuses : révolution parisienne, chute de Charles X.",
+  "Louis-Philippe devient roi des Français : Monarchie de Juillet, régime libéral.",
+  "Indépendance de la Belgique face aux Pays-Bas.",
+  "Diffusion du libéralisme et du nationalisme en Europe (Italie, Allemagne, Grèce...).",
+  "Massacre de Chios : répression ottomane contre les Grecs insurgés.",
+  "Intervention de la France, du Royaume-Uni et de la Russie pour soutenir les Grecs.",
+  "Reconnaissance officielle de l’indépendance de la Grèce.",
+  "Révolutions de 1848 : mouvement de libération et de revendication politique dans toute l’Europe (Printemps des peuples).",
+  "Chute de Louis-Philippe et proclamation de la Deuxième République en France.",
+  "Échec partiel des révolutions, mais progression des idées libérales et nationales."
+];
 
 
 
@@ -917,7 +986,10 @@ function ajouter() {
             motsTr = motsTr.concat(englishIdioms);
             motsFr = motsFr.concat(frenchIdioms);
         }
-
+        if (document.getElementById("revo").checked) {
+            motsTr = motsTr.concat(DateRevoEuro);
+            motsFr = motsFr.concat(EvRevoEuro);
+        }
         if (document.getElementById("euro").checked) {
             // ========== ALGEBRA ==========
             if (document.getElementById("algebra").checked) {
@@ -1221,4 +1293,5 @@ document.getElementById("probstats").onchange = function() {
     }
 
 };
+
 
