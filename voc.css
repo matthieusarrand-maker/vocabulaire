@@ -74,12 +74,18 @@ input::placeholder{
     margin-bottom: 5px; /* espace entre les checkbox */
 }
 h1 {
-  -webkit-text-stroke: 6px black;
+  color: #fff;
+  text-shadow:
+    3px 3px 0 #000,
+    -3px 3px 0 #000,
+    -3px -3px 0 #000,
+    3px -3px 0 #000;
 }
 .hide{
     display: none;
 
     margin-left: 60px;}
+
 
 
 
