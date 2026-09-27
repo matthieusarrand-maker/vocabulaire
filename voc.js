@@ -958,8 +958,8 @@ function melange(array) {
 }
 
 function ajouter() {
-    motsFr = []
-    motsTr = []
+    motsFr = [];
+    motsTr = [];
     if (document.getElementById("prefait").checked) {
         if (document.getElementById("idioms").checked) {
             motsTr = motsTr.concat(englishIdioms);
@@ -1113,23 +1113,34 @@ function ajouter() {
     else {
         let ListeFrancais = document.getElementById("francais").value;
         let ListeTraduction = document.getElementById("traduction").value;
-        motsFr = ListeFrancais.split(",");
-        motsTr = ListeTraduction.split(",");
-    }// Affiche le message 'ajouté !' pendant 1 seconde
+        if (ListeFrancais.trim() !== "" && ListeTraduction.trim() !== "") {
+            motsFr = ListeFrancais.split(",");
+            motsTr = ListeTraduction.split(",");
+        }
+    }
+    
     let msg = document.getElementById("ajouter");
     if (motsFr.length !== motsTr.length) {
-        msg.textContent = "Erreur : les listes n'ont pas la même longueur !";}
-    else if (motsFr.length < 5) {
-        msg.textContent = "Erreur : Liste trop courtes !";}
-    else {  
-        msg.textContent = motsFr.length + " éléments enregistrés !";
+        msg.textContent = "Erreur : les listes n'ont pas la même longueur !";
+        return false;
     }
-    setTimeout(function() {
-        msg.textContent = "Ajouter ?";
-    }, 1000);
-    
+    else if (motsFr.length < 5) {
+        msg.textContent = "Erreur : Liste trop courte (minimum 5 mots) !";
+        return false;
+    }
+    else {  
+        msg.textContent = motsFr.length + " éléments sélectionnés !";
+        return true;
+    }
 }
+
 document.getElementById("startquiz").onclick = function() {
+    let succes = ajouter();
+    
+    if (!succes) {
+        return;
+    }
+
     document.getElementById("quizcontainer").style.display = "block";
     document.getElementById("startcontainer").style.display = "none";
     let buttons = [
@@ -1150,10 +1161,12 @@ document.getElementById("startquiz").onclick = function() {
     let reste = [];
     for (let i = 0; i < repetitions; i++) {
         for (let j = 0; j < motsFr.length; j++) {
-            reste.push(j);}}
+            reste.push(j);
+        }
+    }
     reste = melange(reste);
     questionsrestantes.innerHTML = reste.length;
-    ajouter()
+
     function nextQuestion() {
         if (reste.length === 0) {
             lastscore.innerText = Math.round(repjuste / total * 100) + "%";
@@ -1203,12 +1216,10 @@ document.getElementById("startquiz").onclick = function() {
                             buttons[a].style.backgroundColor = "#ff4c4c";
                         }
                     }
-                    // Désactive les boutons pendant l'attente
                     for (let a = 0; a < buttons.length; a++) {
                         buttons[a].disabled = true;
                     }
                     setTimeout(function() {
-                        // Réinitialise la couleur et réactive les boutons
                         for (let a = 0; a < buttons.length; a++) {
                             buttons[a].style.backgroundColor = "";
                             buttons[a].disabled = false;
@@ -1219,17 +1230,6 @@ document.getElementById("startquiz").onclick = function() {
         }
     }
     nextQuestion();
-
-}
-document.getElementById("prefait").onchange = function() {
-    if (document.getElementById("prefait").checked) {
-        document.getElementById("prefaitcontainer").style.display = "block";
-        document.getElementById("customcontainer").style.display = "none";
-    }
-    else {
-        document.getElementById("prefaitcontainer").style.display = "none";
-        document.getElementById("customcontainer").style.display = "block"; 
-    }
 }
 // EURO
 document.getElementById("euro").onchange = function() {
@@ -1272,6 +1272,30 @@ document.getElementById("probstats").onchange = function() {
     }
 
 };
-
+// TOUT SELECTIONNER POUR EURO
+document.getElementById("selectAllEuro").onclick = function() {
+    // Sélectionne toutes les checkbox à l'intérieur du conteneur Euro
+    let euroCheckboxes = document.querySelectorAll("#eurocontainer input[type='checkbox']");
+    
+    // Vérifie si elles sont TOUTES déjà cochées
+    let allChecked = true;
+    euroCheckboxes.forEach(function(cb) {
+        if (!cb.checked) {
+            allChecked = false;
+        }
+    });
+    
+    // Si elles sont toutes cochées, on désélectionne tout. Sinon, on coche tout.
+    euroCheckboxes.forEach(function(cb) {
+        cb.checked = !allChecked;
+    });
+    
+    // Change le texte du bouton en fonction de l'action
+    if (allChecked) {
+        this.innerText = "Tout sélectionner";
+    } else {
+        this.innerText = "Tout désélectionner";
+    }
+};
 
 
